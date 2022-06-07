@@ -1,0 +1,17 @@
+reporting:
+  enabled: true
+  project-key: DEF
+  send-logs: true
+  #  server:
+  #    hostname: localhost:8080
+  #    access-token: <token>
+  #  notification:
+  #    notify-on-each-failure: true
+  #    slack-channels: automation, dev-team
+  #    ms-teams-channels: automation, qa-team
+  #    emails: example@example.com
+  run:
+    treat_skips_as_failures: false
+    display-name: PyTest demo tests
+    build: build-1
+    environment: DEMO
