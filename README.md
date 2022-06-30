@@ -1,6 +1,11 @@
 ### Working config to launch tests via Zebrunner
 
+`pip install -r requirements.txt && cd tests && pytest main.py`
+
+or
+
 `/bin/bash -c 'pip install -r requirements.txt && cd tests && pytest main.py'`
+
 
 ---
 
