@@ -31,12 +31,12 @@ class CreateProjectModal(ZebrunnerBasePage):
         # WebDriverWait(self.driver, 10).until(
         #     expected_conditions.url_matches(
         #         TestRunsPage(self.driver).page_url_pattern()
-            )
-        )
+        #     )
+        # )
         self.logger.info(
             "Finishing method 'create_project' in 'CreateProjectModal' class"
         )
-        return TestRunsPage(self.driver)
+        # return TestRunsPage(self.driver)
 
     def page_url_pattern(self, project_key=None) -> str:
         pass
