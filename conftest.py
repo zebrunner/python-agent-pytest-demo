@@ -24,6 +24,7 @@ def driver():
     )
 
     driver.set_page_load_timeout(20)
+    driver.implicitly_wait(10)
     driver.maximize_window()
 
     driver.get(configuration.get("base_url"))
