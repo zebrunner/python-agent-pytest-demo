@@ -7,6 +7,8 @@ from pytest_zebrunner.zebrunner_logging import ZebrunnerHandler
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from tests import configuration
 
@@ -31,6 +33,8 @@ class ZebrunnerBasePage(BasePage, ABC):
         self.logger.info(
             "Started method 'get_popup_message' in 'ZebrunnerBasePage' class"
         )
+        WebDriverWait(self.driver, 10).until(
+            expected_conditions.presence_of_element_located(ZebrunnerBasePageLocators.POPUP))
         popup: WebElement = self.get_present_element(ZebrunnerBasePageLocators.POPUP)
         popup_text = popup.find_element_by_xpath(
             ZebrunnerBasePageLocators.POPUP_TEXT[1]
