@@ -23,14 +23,14 @@ class CreateProjectModal(ZebrunnerBasePage):
         self.logger.info(f"'{key}' was sent to 'PROJECT_KEY_FIELD'")
         self.click(ModalWindowBaseLocators.SUBMIT_BUTTON)
         self.logger.info("'SUBMIT_BUTTON' was clicked")
-
-        self.wait_for_focus_trap_disappear()
-
-        from service.TestRunsPage.TestRunsPage import TestRunsPage
-
-        WebDriverWait(self.driver, 10).until(
-            expected_conditions.url_matches(
-                TestRunsPage(self.driver).page_url_pattern()
+        #
+        # self.wait_for_focus_trap_disappear()
+        #
+        # from service.TestRunsPage.TestRunsPage import TestRunsPage
+        #
+        # WebDriverWait(self.driver, 10).until(
+        #     expected_conditions.url_matches(
+        #         TestRunsPage(self.driver).page_url_pattern()
             )
         )
         self.logger.info(
