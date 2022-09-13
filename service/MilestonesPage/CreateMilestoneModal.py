@@ -76,7 +76,6 @@ class CreateMilestoneModal(ZebrunnerBasePage):
 
         self.click(CreateMilestoneModalLocators.SUBMIT_BUTTON)
         self.logger.info("SUBMIT_BUTTON was clicked")
-        self.wait_for_progress_bar_disappear()
         self.logger.info(
             "Finished method 'create_milestone' in 'CreateMilestoneModal' class"
         )

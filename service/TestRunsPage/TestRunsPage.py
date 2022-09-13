@@ -118,7 +118,7 @@ class TestRunsPage(ZebrunnerBasePage):
         TopHeader(self).select_create_project()
 
         CreateProjectModal(self).create_project(name, key)
-        self.wait_for_progress_bar_disappear()
+
         self.logger.info(
             "Finishing method 'create_new_project' in 'TestRunsPage' class"
         )
