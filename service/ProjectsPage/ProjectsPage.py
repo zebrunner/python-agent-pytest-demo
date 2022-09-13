@@ -33,38 +33,35 @@ class ProjectsPage(ZebrunnerBasePage):
             ProjectsPageLocators.PROJECT_ITEM[0], ProjectsPageLocators.PROJECT_ITEM[1]
         )
 
-        while len(projects_list) != 1:
+        for _ in range(len(projects_list) - 1):
             self.logger.info(f"Length of projects list: {len(projects_list)}")
-            for project in projects_list:
-                project: WebElement
 
-                if (
-                        project.find_element(
-                            ProjectsPageLocators.PROJECT_NAME[0],
-                            ProjectsPageLocators.PROJECT_NAME[1],
-                        ).text
-                        != "Default"
-                ):
-                    self.logger.info("PROJECT_NAME != 'Default'")
-                    edit_button: WebElement = project.find_element(
-                        ProjectsPageLocators.EDIT_PROJECT_BUTTON[0],
-                        ProjectsPageLocators.EDIT_PROJECT_BUTTON[1],
-                    )
+            if (
+                    projects_list[0].find_element(
+                        ProjectsPageLocators.PROJECT_NAME[0],
+                        ProjectsPageLocators.PROJECT_NAME[1],
+                    ).text != "Default"
+            ):
+                not_def_project = projects_list[0]
+            else:
+                not_def_project = projects_list[1]
 
-                    edit_button.click()
-                    self.logger.info("'edit_button' was clicked")
+            edit_button: WebElement = not_def_project.find_element(
+                ProjectsPageLocators.EDIT_PROJECT_BUTTON[0],
+                ProjectsPageLocators.EDIT_PROJECT_BUTTON[1],
+            )
 
-                    self.click(ModalWindowBaseLocators.DELETE_BUTTON)
-                    self.logger.info("'DELETE_BUTTON' was clicked")
-                    self.click(ModalWindowBaseLocators.DELETE_BUTTON)
-                    self.logger.info("'DELETE_BUTTON' was clicked")
-                    self.wait_for_progress_bar_disappear()
-                    time.sleep(1)
-                    projects_list = projects_block.find_elements(
-                        ProjectsPageLocators.PROJECT_ITEM[0],
-                        ProjectsPageLocators.PROJECT_ITEM[1],
-                    )
-                    break
+            edit_button.click()
+            self.logger.info("'edit_button' was clicked")
+
+            self.click(ModalWindowBaseLocators.DELETE_BUTTON)
+            self.logger.info("'DELETE_BUTTON' was clicked")
+            self.click(ModalWindowBaseLocators.DELETE_BUTTON)
+            self.logger.info("'DELETE_BUTTON' was clicked")
+            self.wait_for_progress_bar_disappear()
+            time.sleep(2)
+            projects_list: list = projects_block.find_elements(
+                ProjectsPageLocators.PROJECT_ITEM[0], ProjectsPageLocators.PROJECT_ITEM[1])
 
         self.logger.info("Finished method 'clear_projects' in 'ProjectsPage' class")
 

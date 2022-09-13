@@ -63,7 +63,7 @@ class TestRunsPage(ZebrunnerBasePage):
                 "Project key was not specified, comparing with regex pattern"
             )
             pattern = (
-                    configuration.get("base_url") + "projects/" + ".{3,6}/" + "test-runs"
+                    configuration.get("base_url") + "projects/" + ".{3,6}/" + "automation-launches"
             )
             self.logger.info(
                 "Finishing method 'page_url_pattern' in 'TestRunsPage' class"
@@ -75,7 +75,7 @@ class TestRunsPage(ZebrunnerBasePage):
                     + "projects/"
                     + f"{project_key.upper()}"
                     + "/"
-                    + "test-runs"
+                    + "automation-launches"
             )
             self.logger.info("Project key was specified as: " + project_key)
             self.logger.info(
@@ -192,7 +192,7 @@ class TestRunsPage(ZebrunnerBasePage):
         test_run_items: list[WebElement] = self.get_present_elements(
             TestRunsPageLocators.TEST_RUN_ITEMS
         )
-        self.logger.info(f"Found {str(len(test_run_items))} test-runs")
+        self.logger.info(f"Found {str(len(test_run_items))} automation-launches")
         options = test_run_items[0].find_element(
             TestRunsPageLocators.TEST_RUN_OPTIONS_BUTTON[0],
             TestRunsPageLocators.TEST_RUN_OPTIONS_BUTTON[1],
@@ -270,7 +270,7 @@ class TestRunsPage(ZebrunnerBasePage):
         test_run_items: list[WebElement] = self.get_present_elements(
             TestRunsPageLocators.TEST_RUN_ITEMS
         )
-        self.logger.info(f"Found {str(len(test_run_items))} test-runs")
+        self.logger.info(f"Found {str(len(test_run_items))} automation-launches")
         test_run_items[0].click()
         self.logger.info("First element of 'test_run_items' was clicked")
         self.logger.info(

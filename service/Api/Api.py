@@ -115,7 +115,9 @@ def create_test_run_with_integrations(project_key, test_rail_label, xray_label, 
                 "key": "com.zebrunner.app/tcm.testrail.case-id",
                 "value": f"{test_rail_label}",
             },
-            {"key": "com.zebrunner.app/tcm.xray.test-key", "value": f"{xray_label}"},
+            {
+                "key": "com.zebrunner.app/tcm.xray.test-key",
+                "value": f"{xray_label}"},
             {
                 "key": "com.zebrunner.app/tcm.zephyr.test-case-key",
                 "value": f"{zephyr_squad_label}",
